@@ -1,0 +1,15 @@
+Implemented Changes as part of Task:1.
+1. In planet.cs class 'AverageMoonGravity' was readonly changed it to getter & setter;
+1. I have added gravity property in side Moon class and fetch it from API.
+2. Once we fetch all moon data with grevity,assigned average value of grevity in 'AverageMoonGravity' property.
+3. I have added grevity propery for planet also, but it may not required so probebaly we can remove it.(Added 'gravity' parameter in URL : public const string GetAllPlanetsWithMoonsQueryParameters =
+            BodiesUri + "?data=id,semiMajorAxis,gravity,moons,moon,rel&filter[]=isPlanet,neq,false";L)
+4. Other properties will remain as it is as describe in document.
+5. Printed data loading and wriring messeges(LoggerMessage.cs)
+6. Added common method for exception.
+
+Task:2 : We can fetch data of moon with grevity in sigle call and can calculate value of 'AverageMoonGravity'.(Mentioned in details : In 'can make changes' section)
+
+Can make changes.
+1. We are calling _planetService.GetAllPlanets() method 2 times for different method, we can make single call for it.
+2. We also have api call in loop(moon wise individual call), to get moon data(using UriPath.GetMoonByIdQueryParameters), we should remove it from loop and make it single call.
